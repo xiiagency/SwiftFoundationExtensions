@@ -23,15 +23,24 @@ public let mainBundleVersion: String = {
  Returns true if the main bundle was installed from the app store (not in a sandbox environment), false otherwise.
  
  NOTE: An app is considered installed from the App Store if-and-only-if:
-       - the install was not in the sandbox environment
-       - the app has mobile provisioning
+       - the install is not in DEBUG
+       - the install was NOT in the sandbox environment (TestFlight)
+       - the app DOES NOT have mobile provisioning (Ad-Hoc)
  */
 public let isInstalledFromAppstore: Bool = {
-  let isSandbox =
-    Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
+  // Detect debug installs.
+  #if DEBUG
+  let isDebug: Bool = true
+  #else
+  let isDebug: Bool = false
+  #endif
   
-  let hasMobileProvisioning =
+  // Detect TestFlight.
+  let isTestFlight = Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
+  
+  // Detect ad-hoc installs via provisioning profile presence.
+  let isAdHoc =
     Bundle.main.path(forResource: "embedded", ofType: "mobileprovision") != nil
   
-  return !isSandbox && hasMobileProvisioning
+  return !isDebug && !isTestFlight && !isAdHoc
 }()
