@@ -1,6 +1,6 @@
 # SwiftFoundationExtensions Library
 
-![GitHub](https://img.shields.io/github/license/xiiagency/SwiftFoundationExtensions)
+[![GitHub](https://img.shields.io/github/license/xiiagency/SwiftFoundationExtensions?style=for-the-badge)](./LICENSE)
 
 An open source library with some useful extensions and utilities for the core `Foundation`
 Swift libraries. Developed as re-usable components for various projects at
