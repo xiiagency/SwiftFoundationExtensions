@@ -21,10 +21,5 @@ let package =
         name: "SwiftFoundationExtensions",
         dependencies: []
       ),
-      // NOTE: Re-enable when tests are added.
-//      .testTarget(
-//        name: "SwiftFoundationExtensionsTests",
-//        dependencies: ["SwiftFoundationExtensions"]
-//      ),
     ]
   )

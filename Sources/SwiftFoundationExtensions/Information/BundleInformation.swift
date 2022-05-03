@@ -1,7 +1,7 @@
 import Foundation
 
 /**
- Full version and build number of the main bundle in the format;
+ Full version and build number of the main bundle in the format:
    `v[MAJOR].[MINOR].[PATCH]-[BUILD]`
  
  Example:
